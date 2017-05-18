@@ -5,10 +5,18 @@
 
 @result = nil
 
+
 def first_number
     puts "Enter your first number"
-    @first = gets.chomp.to_f
-    operator_menu
+    @first = gets.chomp
+    if /[[:digit:]]/.match(@first)
+        @first = @first.to_f
+        operator_menu
+    else
+        puts "enter digits only"
+        first_number
+    end
+    
 end
 
 def operator_menu
@@ -25,8 +33,14 @@ end
 
 def second_number
     puts "Enter your second number"
-    @second = gets.chomp.to_f
-    result1
+    @second = gets.chomp
+    if /[[:digit:]]/.match(@second)
+        @second = @second.to_f
+        result1
+    else
+        puts "enter digits only"
+        second_number
+    end
 end
 
 def result1
