@@ -2,12 +2,6 @@
 
 #error checking
 
-#result should set first_number and allow for another nodifer to last number so results can build
-#until user decides to clear calculator
-
-#make + - * / work
-
-#make clear work
 
 @result = nil
 
@@ -20,7 +14,13 @@ end
 def operator_menu
     puts "Select what you would like to do (+, -, *, /)"
     @operator = gets.chomp
-    second_number
+    case @operator
+        when "+", "-", "*", "/"
+            second_number
+        else
+            puts "enter a valid operator"
+            operator_menu
+    end
 end
 
 def second_number
@@ -49,7 +49,9 @@ end
 def string_menu
     "Enter a basic equation"
     string_equation = get.chomp
-    string_equation.split()
+   
+
+end
 
 def run_calculator
     if @result == nil
@@ -67,21 +69,22 @@ def main_menu
     puts "Welcome to the.....CALCULATOR OF DESPAIR!"
     puts "1) Start Calculating!"
     puts "2) Enter a basic equation (+ - * /)"
-    puts "3) clear the calculator"
+    puts "3) clear the calculator's memory for a new calculation"
     puts "4) Exit  "
 
 main_menu_choice = gets.chomp
     case main_menu_choice
-        when == "1"
+        when  "1"
             run_calculator
-        when == "2"
+        when "2"
             string_menu
-        when == "3"
+        when "3"
             @result = nil
-        when  == "4"
+            main_menu
+        when "4"
         exit(0)
     else
-        puts "Please select option 1 or 2"
+        puts "Please select a valid option"
         main_menu
     end
 end
