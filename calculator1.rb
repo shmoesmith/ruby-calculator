@@ -1,7 +1,5 @@
 
 
-#error checking
-
 
 @result = nil
 
@@ -53,7 +51,12 @@ def result1
         when  "*"
            @result = @first * @second
         when  "/"
-           @result = @first / @second
+            if @second != 0.0
+                @result = @first / @second
+            else
+                puts "cannot divide by zero"
+                second_number
+            end
     end
     puts @result
 
@@ -82,7 +85,7 @@ end
 def main_menu
     puts "Welcome to the.....CALCULATOR OF DESPAIR!"
     puts "1) Start Calculating!"
-    puts "2) Enter a basic equation (+ - * /)"
+    puts "2) Enter a basic equation (+ - * /) - coming soon!"
     puts "3) clear the calculator's memory for a new calculation"
     puts "4) Exit  "
 
