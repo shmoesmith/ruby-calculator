@@ -64,9 +64,13 @@ def result1
 end
 
 def string_menu
-    "Enter a basic equation"
-    string_equation = get.chomp
-   
+    puts "Enter a basic equation (note: In BETA - your result will not be saved to memory"
+    print "> "
+    string_equation = gets.chomp
+    puts `echo "scale=2; #{string_equation}" | bc`
+    puts "\n\n\n"
+    main_menu
+
 
 end
 
@@ -85,7 +89,7 @@ end
 def main_menu
     puts "Welcome to the.....CALCULATOR OF DESPAIR!"
     puts "1) Start Calculating!"
-    puts "2) Enter a basic equation (+ - * /) - coming soon!"
+    puts "2) Enter a basic equation (+ - * /)"
     puts "3) clear the calculator's memory for a new calculation"
     puts "4) Exit  "
 
